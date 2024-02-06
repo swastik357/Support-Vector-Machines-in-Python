@@ -115,7 +115,7 @@ def get_clouds():
   return X, Y
 
 
-def plot_decision_boundary(model, resolution=100, colors=('b', 'k', 'r')):
+def plot_decision_boundary(model, title = 'default', resolution=100, colors=('b', 'k', 'r')):
   np.warnings.filterwarnings('ignore')
   fig, ax = plt.subplots()
 
@@ -138,6 +138,7 @@ def plot_decision_boundary(model, resolution=100, colors=('b', 'k', 'r')):
   mask = model.alphas > 0.
   ax.scatter(model.Xtrain[:,0][mask], model.Xtrain[:,1][mask],
              c=model.Ytrain[mask], cmap='seismic')
+  ax.set_title(f'{title}')
 
   # debug
   ax.scatter([0], [0], c='black', marker='x')
